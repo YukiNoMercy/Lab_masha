@@ -5,6 +5,7 @@ def chanch_string():
     maximum = 0
     max_i = 0
     for lines in text:
+        print(lines, end='')
         for i in range(len(lines)):
             if lines[i] == " ":
                 if count > maximum:
@@ -18,6 +19,7 @@ def chanch_string():
                 lines = lines.replace('o', 'y')
             if lines[i] == 'i':
                 lines = lines.replace('i', 'j')
+        print(lines, end='')
         text_write.write(lines)
     text_write.close()
     text.close()
