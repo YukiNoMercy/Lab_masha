@@ -21,6 +21,7 @@ def chanch_string():
                 lines = lines.replace('i', 'j')
         print(lines, end='')
         text_write.write(lines)
+
     text_write.close()
     text.close()
 
