@@ -1,12 +1,12 @@
 def change_file():
     text = open("16.txt", "r")
     text_write = open("res.txt", "w+")
-    count = 0
-    maximum = 0
     max_i = 0
 
     for lines in text:
-        print(lines, end='')
+        maximum = 0
+        count = 0
+        # print(lines, end='')
         for i in range(len(lines)):
             if lines[i] == " ":
                 if count > maximum:
@@ -15,14 +15,14 @@ def change_file():
                 count = 0
             count += 1
 
-        for i in range(max_i, maximum):
+        for i in range(max_i, max_i + maximum):
             if lines[i] == 'o':
-                lines = lines.replace('o', 'y')
+                lines = lines[:i] + 'y' + lines[i + 1 : ]
             if lines[i] == 'i':
-                lines = lines.replace('i', 'j')
-        print(lines, end='')
+                lines = lines[:i] + 'j' + lines[i + 1 : ]
+        # print(lines)
         text_write.write(lines)
-    print("\n")
+    # print("\n")
     text_write.close()
     text.close()
 
@@ -33,7 +33,7 @@ def numbers():
     temp_array = []
     for lines in text:
         s = ""
-        print(lines, end='')
+        # print(lines, end='')
         temp = lines.split()
         for i in temp:
             if int(i) % 2 == 0:
@@ -41,7 +41,7 @@ def numbers():
     temp_array.sort(reverse=True)
     for i in temp_array:
         s += (str(i) + " ")
-    print("\n", s)
+    # print("\n", s)
     text_write.write(s)
 
 
